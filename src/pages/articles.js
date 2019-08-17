@@ -1,21 +1,46 @@
-import React, { Component, PropTypes } from "react";
+import React, {
+  Component,
+} from "react";
 
-class Articles extends Component {
-  constructor(props) {
-    super(props);
+import * as actions from "../redux/actions";
+
+import {
+  connect
+} from "react-redux";
+
+import Article from "../components/Article"
+class articles extends Component {
+
+  componentDidMount() {
+    const path = this.props.location.pathname.replace(/\//g, '');
+    this.props.fetchArticlesBySport(path);
   }
 
-  componentWillMount() {}
 
-  componentDidMount() {}
-
-  componentWillReceiveProps(nextProps) {}
 
   render() {
-    return <div>hi</div>;
+    const {
+      articles
+    } = this.props
+
+
+    return (
+      <div className="row" >
+        {articles.map((article, i) => (
+          < Article article={article} key={i} />
+        ))}
+      </div>
+    );
   }
 }
 
-Articles.propTypes = {};
+const mapStateToProps = ({
+  articles
+}) => {
+  return articles;
+};
 
-export default Articles;
+export default connect(
+  mapStateToProps,
+  actions
+)(articles);

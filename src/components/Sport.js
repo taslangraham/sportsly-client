@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class componentName extends Component {
   render() {
     return (
-      <Link to={"/" + this.props.sport.sport}>
+      <Link to={`/${this.props.sport.sport}`}>
         <div className="col m4">
           <div className="card hoverable">
             <div className="card-image responsive-img">
