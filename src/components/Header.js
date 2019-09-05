@@ -6,9 +6,9 @@ class header extends Component {
     super(props);
   }
 
-  componentWillMount() {}
+  componentWillMount() { }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (
@@ -19,14 +19,14 @@ class header extends Component {
               Sportsly
             </Link>
 
-            <ul className="right">
+            {/* <ul className="right">
               <li>
                 <a href="sass.html">Home</a>
               </li>
               <li>
                 <a href="badges.html">Back</a>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </nav>
       </div>
