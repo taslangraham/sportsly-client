@@ -5,10 +5,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import Sport from "./Sport";
 import Articles from "../pages/articles";
+import Loader from "../components/Loader"
 class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   componentDidMount() {
     this.props.fetchSports();
@@ -17,7 +16,7 @@ class Home extends Component {
   render() {
     const { sports, loading } = this.props;
     if (loading) {
-      return <h1>Loading ....</h1>;
+      return (<Loader />);
     }
     return (
       <div className="row">

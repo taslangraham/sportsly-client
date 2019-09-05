@@ -5,10 +5,13 @@ import {
 } from "react-redux";
 
 import * as actions from "../redux/actions";
-
+import Loader from "../components/Loader"
 class Item extends Component {
     state = {
-        parsedStory: ''
+        image: {
+            url: ""
+        },
+        story: ''
     }
     componentDidMount() {
         let fullPath = document.location.pathname.split('/');
@@ -21,44 +24,69 @@ class Item extends Component {
 
 
 
-    componentWillReceiveProps(nextProps) {
-        const parser = new DOMParser();
-        const htmlDoc = parser.parseFromString(nextProps.item.story, 'text/html');
+    componentWillReceiveProps(prevProps) {
+        if (prevProps.item.story != this.props.item.story) {
 
-        let content = document.getElementById("content")
-        const body = document.createNodeIterator(htmlDoc.body);
+            const parser = new DOMParser();
 
-        this.setState({ parsedStory: body.root.innerHTML });
+            let parsed = parser.parseFromString(prevProps.item.story, 'text/html');
 
-        content.innerHTML = this.state.parsedStory;
+            // let content = document.getElementById("content")
+
+            let body = document.createNodeIterator(parsed.body);
+
+            body = body.root.innerHTML;
+            this.setState({ story: body !== '' ? body : "<h1>Article unavailable</h1>" });
+
+
+
+            this.getImageProps(prevProps.item.images);
+
+            this.setState({ loading: false })
+
+        }
+
     }
 
+    getImageProps = (images) => {
+        if (images.length > 0) {
+            let image = JSON.stringify(images[images.length > 1 ? 1 : 0].url)
+            image = image.replace(/["]/g, "")
+            this.setState({ url: image })
+        }
+    }
 
+    getContent = () => {
+        let content = document.createElement("DIV");
+        content.innerHTML = this.state.story
+        return content.innerText;
+
+    }
     render() {
-        const { loading, item } = this.props;
 
-        if (this.loading) {
-            return (<h1>loading</h1>)
+        const { loading, item } = this.props
+
+        if (loading) {
+            return (<Loader />)
         }
         return (
             < div className="row" >
 
                 < div className="col s8 offset-s2 l8 offset-l2 m8 offset-m2" >
                     <div className="card">
-                        <p className="card-title">{item.title}</p>
+                        <h1 className="card-title center-align" style={{ paddingTop: "10px" }}>
+                            <strong>{item.title}</strong>
+                        </h1>
 
-                        <div className="card-image">
-                            {/* <img src="images/sample-1.jpg" /> */}
+                        <div className="card-image ">
+                            <img src={this.state.url} />
                         </div>
                         <div className="card-content" >
-                            <section>
-                                <article id="content">
 
-                                </article>
-                            </section>
-                        </div>
-                        <div className="card-action">
-                            <a href="#">This is a link</a>
+                            <p style={{ lineHeight: '2.6', align: "center" }}>
+                                {this.getContent()}
+                            </p>
+
                         </div>
                     </div>
                 </div >

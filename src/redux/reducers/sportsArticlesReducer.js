@@ -19,14 +19,20 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-    console.log('type', action.type)
+
     switch (action.type) {
         case FETCH_SPORTS_ARTICLES_SUCCESS:
             return {
                 ...state,
-                loading: false,
                 error: null,
+                loading: false,
                 articles: action.payload.data.articles
+            }
+
+        case FETCH_SPORTS_ARTICLES_BEGIN:
+            return {
+                ...state,
+                loading: true,
             }
 
         case FETCH_ARTICLE_BEGIN:
@@ -38,6 +44,7 @@ export default function (state = initialState, action) {
         case FETCH_ARTICLE_SUCCESS: {
             return {
                 ...state,
+                loading: false,
                 item: action.payload
             }
         }

@@ -3,7 +3,7 @@ import React, {
 } from "react";
 
 import * as actions from "../redux/actions";
-
+import Loader from "../components/Loader"
 import {
   connect
 } from "react-redux";
@@ -19,16 +19,19 @@ class articles extends Component {
 
 
   render() {
-    const {
+    const { loading,
       articles
     } = this.props
 
-
+    if (loading) {
+      return (<Loader />)
+    }
     return (
-      <div className="row" >
+      <div className='row'>
         {articles.map((article, i) => (
           < Article article={article} key={i} />
         ))}
+
       </div>
     );
   }
