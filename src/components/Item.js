@@ -72,7 +72,7 @@ class Item extends Component {
         return (
             < div className="row" >
 
-                < div className="col s8 offset-s2 l8 offset-l2 m8 offset-m2" >
+                < div className="col s12 offset-s0 l8 offset-l2 m8 offset-m2" >
                     <div className="card">
                         <h1 className="card-title center-align" style={{ paddingTop: "10px" }}>
                             <strong>{item.title}</strong>
