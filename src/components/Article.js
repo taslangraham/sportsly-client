@@ -25,7 +25,7 @@ class Article extends Component {
                             <div className="card-content" >
 
 
-                                <div className="card-image responsive-img" >
+                                <div className="card-image responsive-img " >
                                     <img src={this.props.article.images.length < 1 ? this.state.defaultImage : this.props.article.images[0].url} style={styles.image} />
                                 </div>
 

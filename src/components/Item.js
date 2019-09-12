@@ -26,26 +26,14 @@ class Item extends Component {
 
     componentWillReceiveProps(prevProps) {
         if (prevProps.item.story != this.props.item.story) {
-
             const parser = new DOMParser();
-
             let parsed = parser.parseFromString(prevProps.item.story, 'text/html');
-
-            // let content = document.getElementById("content")
-
             let body = document.createNodeIterator(parsed.body);
-
             body = body.root.innerHTML;
             this.setState({ story: body !== '' ? body : "<h1>Article unavailable</h1>" });
-
-
-
             this.getImageProps(prevProps.item.images);
-
             this.setState({ loading: false })
-
         }
-
     }
 
     getImageProps = (images) => {
