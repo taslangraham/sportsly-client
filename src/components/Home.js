@@ -1,10 +1,8 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../redux/actions";
-import { BrowserRouter as Router } from "react-router-dom";
 
 import Sport from "./Sport";
-import Articles from "../pages/articles";
 import Loader from "../components/Loader"
 class Home extends Component {
 
@@ -13,15 +11,19 @@ class Home extends Component {
     this.props.fetchSports();
   }
 
+  // render function passes each sport to the Sport component to be displayed
   render() {
     const { sports, loading } = this.props;
     if (loading) {
       return (<Loader />);
     }
+
     return (
       <div className="row">
         {sports.map((sport, i) => (
+
           <Sport key={i} sport={sport} />
+          
         ))}
       </div>
     );

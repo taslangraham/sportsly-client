@@ -11,8 +11,11 @@ import {
 import Article from "../components/Article"
 class articles extends Component {
 
+
   componentDidMount() {
     const path = this.props.location.pathname.replace(/\//g, '');
+
+    // fetches articles for selected sport
     this.props.fetchArticlesBySport(path);
   }
 

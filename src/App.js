@@ -26,6 +26,8 @@ function App() {
         <Route path="/nba" exact component={Articles} />
         <Route path="/wnba" exact component={Articles} />
         <Route path="/nfl" exact component={Articles} />
+
+        {/* route for each selected article */}
         <Route path="/:sport/:id" exact component={Item} />
 
       </Router>
