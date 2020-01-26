@@ -5,6 +5,7 @@ class Article extends Component {
     state = {
         defaultImage: "https://lh3.googleusercontent.com/JP5PdXtfZXB4PmlBjpsEbU4ZoDGhFCpcY3Q1y4q1bBTt9u35PwMuIyM1QEzTgZ_j4R0"
     }
+    
     getArticleIdUrl(url) {
         const sport = document.location.pathname.replace(/\//g, '');
         let id = url.split('/');

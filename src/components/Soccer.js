@@ -23,17 +23,19 @@ class Soccer extends Component {
             <div className="row">
                 {
                     RegionsAndLeagues.map((region, i) => (
-                        <div>
-                            <div class="row">
-                                <h1 key={i} >{region.name}</h1>
+                        <div KEY={i}>
+                            <div className="row">
+                                <h1>{region.name}</h1>
                             </div>
-                            <div class="row">
+                            <div className="row">
 
                                 {
-                                    region.leagues.map((league, i) => (
-                                        <Link to={``} //e.g /nba
+                                    region.leagues.map((league, key) => (
+                                        <Link
+                                            key={key}
+                                            to={`/soccer/${region.name}/${league.code}`}//e.g /nba
                                         >
-                                            <div className="col m4">
+                                            <div className="col m4" >
                                                 <div className="card hoverable">
                                                     <div className="card-image responsive-img">
                                                         <img src={league.image || 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDt6V.rPqgC0/v1/1000x-1.jpg'} />
