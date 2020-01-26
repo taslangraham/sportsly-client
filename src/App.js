@@ -17,24 +17,28 @@ import SoccerLeagueNews from "./components/SoccerLeagueNews"
 function App() {
 
   return (
-    <div>
+    < div >
       <Router className="container">
         <Header />
-        <Route component={Home} />
-        <Route exact path="/" component={Home} />
-        {/* <Route path="/soccer" exact component={Soccer} /> */}
+        <Switch>
+          <Route exact path="/" component={Home} />
+          {/* <Route path="/soccer" exact component={Soccer} /> */}
 
-        <Route path="/nba" exact component={Articles} />
-        <Route path="/wnba" exact component={Articles} />
-        <Route path="/nfl" exact component={Articles} />
-        {/* route for each selected article */}
-        <Route path="/:sport/:id" exact component={Item} />
+          <Route path="/nba" exact component={Articles} />
+          <Route path="/wnba" exact component={Articles} />
 
-        {/* <Route path="/soccer/:region/:code" exact component={SoccerLeagueNews} /> */}
+          <Route path="/nfl" exact component={Articles} />
+          {/* route for each selected article */}
+          <Route path="/:sport/:id" exact component={Item} />
 
+          <Route component={Home} path="/*" />
+
+          {/* <Route path="/soccer/:region/:code" exact component={SoccerLeagueNews} /> */}
+
+        </Switch>
 
       </Router>
-    </div>
+    </div >
   );
 }
 
