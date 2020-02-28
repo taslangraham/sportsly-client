@@ -44,12 +44,12 @@ class Article extends Component {
 }
 
 const styles = {
-    // width: "600px",
+    width: "600px",
     height: '400px',
     maxWidth: "600px",
     maxHeight: "400px",
     image: {
-        height: '400px',
+        height: auto,
         width: '100%'
     }
 }
