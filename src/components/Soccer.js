@@ -22,14 +22,15 @@ class Soccer extends Component {
 
         return (
             <div className="row">
-                {
-                    RegionsAndLeagues.map((region, i) => (
-                        <div key={i}>
-                            <div className="row center-align">
-                                <h1>{region.name}</h1>
-                            </div>
-                            <div className="row">
+                <div className="container">
+                    {
+                        RegionsAndLeagues.map((region, i) => (
+                            <div key={i}>
 
+
+                                <div className="row center-align">
+                                    <h1>{region.name}</h1>
+                                </div>
                                 {
                                     region.leagues.map((league, key) => (
                                         <Link
@@ -53,13 +54,14 @@ class Soccer extends Component {
 
                                     ))
                                 }
+
+                                < br />
                             </div>
-                            < br />
-                        </div>
 
-                    ))
-                }
+                        ))
+                    }
 
+                </div>
             </div>
         );
     }
