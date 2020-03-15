@@ -18,26 +18,25 @@ class Article extends Component {
 
         return (
             <Link to={this.getArticleIdUrl(this.props.article.links.api.self.href)} >
-                <div>
+                <div className="row">
                     <div className="col s12 offset-s0 l8 offset-l2 m8 offset-m2" >
+
                         <div className="card hoverable" >
-                            <br />
-                            <h6 className="card-title center-align" style={{}}>{this.props.article.headline}</h6>
-
-                            <div className="card-content" >
-
-
-                                <div className="col m4 card-image responsive-img " >
-                                    <img src={this.props.article.images.length < 1 ? this.state.defaultImage : this.props.article.images[0].url} style={styles.image} />
-                                </div>
-
+                            <div className="card-image" >
+                                <img src={this.props.article.images.length < 1 ? this.state.defaultImage : this.props.article.images[0].url} style={styles.image} />
                             </div>
 
-                            <hr />
-                            <p>{this.props.article.description}</p>
+                            <h6 className="card-title center-align">{this.props.article.headline}</h6>
+
+                            <div className="card-content" >
+                                <p>{this.props.article.description}</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
+
+
             </Link >
         )
     }
@@ -49,8 +48,10 @@ const styles = {
     maxWidth: "600px",
     maxHeight: "400px",
     image: {
-        height: auto,
-        width: '100%'
+        margin: 'auto',
+        height: '200px',
+        width: 'auto',
+        overflow: 'hidden'
     }
 }
 
