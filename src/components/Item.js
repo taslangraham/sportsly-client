@@ -14,7 +14,7 @@ class Item extends Component {
         story: ''
     }
     componentDidMount() {
-        alert(document.location.pathname.split('/'))
+        // alert(document.location.pathname.split('/'))
         let fullPath = document.location.pathname.split('/');
         const articleId = fullPath[fullPath.length - 1];
         this.props.fetchArticle(articleId);

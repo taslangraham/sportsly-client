@@ -68,11 +68,13 @@ class Soccer extends Component {
 }
 
 const styles = {
+
     image: {
+
         margin: 'auto',
         height: '200px',
-        width: 'auto',
-        overflow: 'hidden'
+        width: '100%',
+        overflow: 'auto'
     }
 }
 
