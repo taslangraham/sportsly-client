@@ -25,7 +25,7 @@ class Soccer extends Component {
                 {
                     RegionsAndLeagues.map((region, i) => (
                         <div key={i}>
-                            <div className="row">
+                            <div className="row center-align">
                                 <h1>{region.name}</h1>
                             </div>
                             <div className="row">
@@ -44,8 +44,8 @@ class Soccer extends Component {
 
                                                     </div>
                                                     {
-                                                        <div className="card-content white">
-                                                            <h5>{league.name}</h5>
+                                                        <div className="card-content white" style={styles.title}>
+                                                            <h5 >{league.name}</h5>
                                                         </div>}
                                                 </div>
                                             </div>
@@ -68,7 +68,12 @@ class Soccer extends Component {
 }
 
 const styles = {
-
+    title: {
+        color: 'red'
+    },
+    region: {
+        fontWeight: "bolder"
+    },
     image: {
 
         margin: 'auto',
