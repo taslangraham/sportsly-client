@@ -20,13 +20,13 @@ class Home extends Component {
 
     return (
       <div className="row">
-        <div className="container">
-          {sports.map((sport, i) => (
 
-            <Sport key={i} sport={sport} />
+        {sports.map((sport, i) => (
 
-          ))}
-        </div>
+          <Sport key={i} sport={sport} />
+
+        ))}
+
       </div>
     );
   }

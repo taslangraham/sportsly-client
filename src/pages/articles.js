@@ -31,10 +31,11 @@ class articles extends Component {
     }
     return (
       <div className='row'>
-        {articles.map((article, i) => (
-          < Article article={article} key={i} />
-        ))}
-
+        <div className="container">
+          {articles.map((article, i) => (
+            < Article article={article} key={i} />
+          ))}
+        </div>
       </div>
     );
   }
