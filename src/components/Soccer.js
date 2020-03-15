@@ -73,7 +73,7 @@ const styles = {
 
         margin: 'auto',
         height: '200px',
-        width: 'auto',
+        // width: 'auto',
         overflow: 'hidden'
     }
 }
