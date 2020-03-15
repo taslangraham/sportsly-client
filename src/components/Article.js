@@ -21,6 +21,7 @@ class Article extends Component {
         const id = url.split('/');
         url = `${sport}/${id[id.length - 1]}`
         return this.isSoccer(url) ? this.props.article.links.web.href : url;
+        // return url
 
     }
 

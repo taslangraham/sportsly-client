@@ -1,28 +1,48 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
+import * as actions from "../redux/actions";
+import Loader from "./Loader"
+import Article from "../components/Article"
+import { articles, article } from '../routes';
 class SoccerLeagueNews extends Component {
-    region = '';
-    leagueCode = '';
+
 
     componentDidMount() {
-        let sport = document.location.pathname.split('/').splice(2)
-        this.region = sport[0];
-        this.leagueCode = sport[1]
 
-        // make request to ESPN API to get news article fom select region and league
+        let sport = document.location.pathname.split('/').splice(2)
+        let leagueCode = sport[1]
+        this.props.fetchSoccerArticlesByRegionAndLeagueCode(leagueCode);
     }
 
     render() {
+        const { articles, loading } = this.props
+
+        if (loading) {
+            return (
+                <Loader />
+            )
+        }
         return (
-            <div>
-                {/* load articles here */}
-            </div>
+            < div className="row" >
+
+                {
+                    articles.map((article, i) => (
+                        < Article article={article} key={i} />
+                    ))
+                }
+
+            </div >
         )
     }
 }
 
-SoccerLeagueNews.propTypes = {
+const mapStateToProps = ({ soccerRegionsAndLeagues }) => {
+    return soccerRegionsAndLeagues;
+};
 
-}
-
-export default SoccerLeagueNews
+export default connect(
+    mapStateToProps,
+    actions
+)(SoccerLeagueNews);

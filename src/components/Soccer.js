@@ -7,6 +7,7 @@ import Loader from "./Loader"
 
 class Soccer extends Component {
 
+
     componentDidMount() {
         this.props.fetchSoccerRegionsAndLeagues()
     }
@@ -23,7 +24,7 @@ class Soccer extends Component {
             <div className="row">
                 {
                     RegionsAndLeagues.map((region, i) => (
-                        <div KEY={i}>
+                        <div key={i}>
                             <div className="row">
                                 <h1>{region.name}</h1>
                             </div>
@@ -38,7 +39,7 @@ class Soccer extends Component {
                                             <div className="col m4" >
                                                 <div className="card hoverable">
                                                     <div className="card-image responsive-img">
-                                                        <img src={league.image || 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDt6V.rPqgC0/v1/1000x-1.jpg'} />
+                                                        <img src={league.image || 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDt6V.rPqgC0/v1/1000x-1.jpg'} style={styles.image} />
                                                         <span className="card-title"></span>
 
                                                     </div>
@@ -62,11 +63,19 @@ class Soccer extends Component {
             </div>
         );
     }
-}
 
-Soccer.propTypes = {
 
 }
+
+const styles = {
+    image: {
+        margin: 'auto',
+        height: '200px',
+        width: 'auto',
+        overflow: 'hidden'
+    }
+}
+
 
 const mapStateToProps = ({ soccerRegionsAndLeagues }) => {
     return soccerRegionsAndLeagues;

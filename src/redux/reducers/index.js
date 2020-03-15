@@ -9,5 +9,6 @@ export default combineReducers({
   sports: homeReducer,
   articles: articlesReducer,
   item: articlesReducer,
-  'soccerRegionsAndLeagues': soccerRegionsAndLeaguesReducer
+  soccerRegionsAndLeagues: soccerRegionsAndLeaguesReducer,
+
 });

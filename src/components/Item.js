@@ -14,9 +14,9 @@ class Item extends Component {
         story: ''
     }
     componentDidMount() {
+        alert(document.location.pathname.split('/'))
         let fullPath = document.location.pathname.split('/');
         const articleId = fullPath[fullPath.length - 1];
-
         this.props.fetchArticle(articleId);
         // this.parseHtml(this.props.item.story)
 
@@ -25,6 +25,7 @@ class Item extends Component {
 
 
     componentWillReceiveProps(prevProps) {
+
         if (prevProps.item.story != this.props.item.story) {
             const parser = new DOMParser();
             let parsed = parser.parseFromString(prevProps.item.story, 'text/html');

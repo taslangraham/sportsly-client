@@ -31,7 +31,7 @@ export const fetchArticle = (id) => async dispatch => {
         type: FETCH_ARTICLE_BEGIN
     });
 
-    const article = await axios.get(`${routes.serverUrl}${routes.sports}${routes.article}` + id);
+    const article = await axios.get(`${routes.serverUrl}${routes.sports}${routes.article}${id}`);
 
     dispatch({
         type: FETCH_ARTICLE_SUCCESS,

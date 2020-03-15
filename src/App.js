@@ -14,6 +14,7 @@ import Articles from "./pages/articles";
 import Soccer from "./components/Soccer"
 import Item from "./components/Item";
 import SoccerLeagueNews from "./components/SoccerLeagueNews"
+import Article from "./components/Article";
 function App() {
 
   return (
@@ -22,21 +23,18 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          {/* <Route path="/soccer" exact component={Soccer} /> */}
-
+          <Route path="/soccer" exact component={Soccer} />
           <Route path="/nba" exact component={Articles} />
           <Route path="/wnba" exact component={Articles} />
-
           <Route path="/nfl" exact component={Articles} />
+
           {/* route for each selected article */}
           <Route path="/:sport/:id" exact component={Item} />
+          <Route path="/soccer/:region/:code" exact component={SoccerLeagueNews} />
+          <Route path="/soccer/:region/:id/:region" exact component={Item} />
 
           <Route component={Home} path="/*" />
-
-          {/* <Route path="/soccer/:region/:code" exact component={SoccerLeagueNews} /> */}
-
         </Switch>
-
       </Router>
     </div >
   );
