@@ -28,7 +28,7 @@ class Soccer extends Component {
                             <div key={i}>
 
 
-                                <div className="row center-align">
+                                <div className="center-align">
                                     <h1>{region.name}</h1>
                                 </div>
                                 {
@@ -41,7 +41,6 @@ class Soccer extends Component {
                                                 <div className="card hoverable">
                                                     <div className="card-image responsive-img">
                                                         <img src={league.image || 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDt6V.rPqgC0/v1/1000x-1.jpg'} style={styles.image} />
-                                                        <span className="card-title"></span>
 
                                                     </div>
                                                     {
