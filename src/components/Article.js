@@ -3,22 +3,34 @@ import { Link } from "react-router-dom";
 
 class Article extends Component {
     state = {
-        defaultImage: "https://lh3.googleusercontent.com/JP5PdXtfZXB4PmlBjpsEbU4ZoDGhFCpcY3Q1y4q1bBTt9u35PwMuIyM1QEzTgZ_j4R0"
+        defaultImage: "https://lh3.googleusercontent.com/JP5PdXtfZXB4PmlBjpsEbU4ZoDGhFCpcY3Q1y4q1bBTt9u35PwMuIyM1QEzTgZ_j4R0",
+        isSoccer: false
+    }
+
+    getSportPath() {
+        return document.location.pathname;
+
+    }
+    isSoccer(value) {
+        return value.split("/").includes("soccer");
     }
 
     getArticleIdUrl(url) {
-        const sport = document.location.pathname;
+        const sport = this.getSportPath();
         console.log(sport)
-        let id = url.split('/');
+        const id = url.split('/');
         url = `${sport}/${id[id.length - 1]}`
-        console.log(url)
-        return url;
+        return this.isSoccer(url) ? this.props.article.links.web.href : url;
+
     }
+
+
     render() {
 
         return (
-            <Link to={this.getArticleIdUrl(this.props.article.links.api.self.href)} >
-                <div className="row">
+
+            <div className="row">
+                <a href={this.getArticleIdUrl(this.props.article.links.api.self.href)} target={this.isSoccer(this.getSportPath()) ? "_blank" : "_self"}>
                     <div className="col s12 offset-s0 l8 offset-l2 m8 offset-m2" >
 
                         <div className="card hoverable" >
@@ -34,10 +46,10 @@ class Article extends Component {
 
                         </div>
                     </div>
-                </div>
+                </a>
+            </div >
 
 
-            </Link >
         )
     }
 }
