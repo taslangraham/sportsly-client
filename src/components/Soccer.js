@@ -74,7 +74,7 @@ const styles = {
         margin: 'auto',
         height: '200px',
         width: '100%',
-        overflow: 'auto'
+        overflow: 'hidden'
     }
 }
 
