@@ -26,14 +26,14 @@ class SoccerLeagueNews extends Component {
         }
         return (
             < div className="row" >
-                <div className="container">
+                {/* <div className="container"> */}
 
-                    {
-                        articles.map((article, i) => (
-                            < Article article={article} key={i} />
-                        ))
-                    }
-                </div>
+                {
+                    articles.map((article, i) => (
+                        < Article article={article} key={i} />
+                    ))
+                }
+                {/* </div> */}
             </div >
         )
     }

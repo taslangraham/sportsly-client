@@ -25,7 +25,7 @@ class Soccer extends Component {
                 <div className="container">
                     {
                         RegionsAndLeagues.map((region, i) => (
-                            <div key={i}>
+                            <div key={i} className="row">
 
 
                                 <div className="center-align">
@@ -38,13 +38,15 @@ class Soccer extends Component {
                                             to={`/soccer/${region.name}/${league.code}`}//e.g /nba
                                         >
                                             <div className="col m4" >
-                                                <div className="card hoverable">
+                                                <div className="card medium hoverable">
                                                     <div className="card-image responsive-img">
                                                         <img src={league.image || 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDt6V.rPqgC0/v1/1000x-1.jpg'} style={styles.image} />
 
                                                     </div>
+
                                                     {
                                                         <div className="card-content white" style={styles.title}>
+
                                                             <h5 >{league.name}</h5>
                                                         </div>}
                                                 </div>
@@ -79,7 +81,8 @@ const styles = {
 
         margin: 'auto',
         height: '200px',
-        width: 'auto',
+        maxWidth: '100%',
+        width: '100%',
         overflow: 'hidden'
     }
 }
