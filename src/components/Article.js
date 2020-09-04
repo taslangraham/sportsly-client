@@ -41,8 +41,8 @@ class Article extends Component {
 
                             <h6 className="card-title center-align">{this.props.article.headline}</h6>
 
-                            <div className="card-content" >
-                                 dangerouslySetInnerHTML={{ __html:this.props.article.description}}
+                            <div className="card-content" 
+                                 dangerouslySetInnerHTML={{ __html:this.props.article.description}}>
                                 //this.props.article.description
                             </div>
 
