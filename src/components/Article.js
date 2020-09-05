@@ -43,7 +43,7 @@ class Article extends Component {
 
                             <div className="card-content" 
                                
-                                <p>{{this.props.article.description}}</p>
+                                 {{this.props.article.description}} 
                             </div>
 
                         </div>
