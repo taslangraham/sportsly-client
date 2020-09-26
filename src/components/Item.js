@@ -70,9 +70,11 @@ class Item extends Component {
                         <div className="card-image ">
                             <img src={this.state.url} />
                         </div>
-                        <div className="card-content"   style={{ lineHeight: '2.6', align: "center">
+                        <div className="card-content" >
 
-                    {{this.getContent()}}
+                            <p style={{ lineHeight: '2.6', align: "center" }}>
+                                {this.getContent()}
+                            </p>
 
                         </div>
                     </div>
